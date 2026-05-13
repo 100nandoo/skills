@@ -33,22 +33,27 @@ Where:
 - `L` is the parallel lane letter within that stage
 - `C` is the chat identifier
 
+`N` is just the stage number in the dependency graph. A given stage may be either:
+
+- `f<N>` when that stage is a single serial lane
+- `p<N><L>` when that stage fans out into multiple parallel lanes
+
+There is no fixed rule that a specific number such as `3` is the "parallel stage". Any stage number can be foundation or parallel depending on the plan.
+
 ## Meaning
 
 Examples:
 
 - `f1-1`: foundation stage 1, assigned to chat 1
-- `f2-1`: foundation stage 2, also assigned to chat 1
-- `p3a-2`: parallel stage 3, lane `a`, assigned to chat 2
-- `p3b-3`: parallel stage 3, lane `b`, assigned to chat 3
-- `f4-4`: foundation stage 4, assigned to chat 4
+- `p2a-2`: parallel stage 2, lane `a`, assigned to chat 2
+- `p2b-3`: parallel stage 2, lane `b`, assigned to chat 3
+- `f3-4`: foundation stage 3, assigned to chat 4
 
 The stage portion encodes dependency order.
 
-- `f1` must finish before `f2`
-- `f2` must finish before stage `3` work starts
-- `p3a` and `p3b` are sibling lanes in the same stage and may run in parallel once their blockers are cleared
-- `f4` represents convergence after the stage-3 fanout
+- `f1` must finish before stage `2` work starts
+- `p2a` and `p2b` are sibling lanes in stage `2` and may run in parallel once their blockers are cleared
+- `f3` represents convergence after the stage-2 fanout
 
 The suffix after `-` encodes chat routing.
 
@@ -73,10 +78,9 @@ Use the same chat id for multiple related issues when reducing coordination over
 Example:
 
 - `f1-1`
-- `f2-1`
-- `p3a-2`
-- `p3b-2`
-- `f4-3`
+- `p2a-2`
+- `p2b-2`
+- `f3-3`
 
 ### Optimized mode
 
@@ -85,10 +89,9 @@ Use different chat ids for independent lanes when maximizing parallel execution 
 Example:
 
 - `f1-1`
-- `f2-1`
-- `p3a-2`
-- `p3b-3`
-- `f4-4`
+- `p2a-2`
+- `p2b-3`
+- `f3-4`
 
 ## Status labels
 

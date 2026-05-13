@@ -17,6 +17,11 @@ Where:
 - `L` is the lane letter within a parallel stage
 - `C` is the chat identifier
 
+`N` is the stage number, not a hardcoded mode switch. Any stage can be:
+
+- `f<N>` if it is a single serial stage
+- `p<N><L>` if it fans out into parallel lanes
+
 ## Rules
 
 - Keep orchestration labels stable after issue creation unless the dependency structure was wrong
@@ -27,7 +32,6 @@ Where:
 ## Example
 
 - `f1-1`
-- `f2-1`
-- `p3a-2`
-- `p3b-3`
-- `f4-4`
+- `p2a-2`
+- `p2b-3`
+- `f3-4`

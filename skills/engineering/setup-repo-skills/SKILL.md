@@ -74,7 +74,7 @@ Confirm the layout:
 
 Offer:
 
-- **Default orchestration scheme** — foundation labels like `f1-1` and parallel labels like `p3a-2`
+- **Default orchestration scheme** — foundation labels like `f1-1` and parallel labels like `p2a-2`; the number is always the dependency stage
 - **Custom orchestration scheme** — the user describes a different format or policy
 
 ### 3. Confirm and edit
