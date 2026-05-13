@@ -1,12 +1,12 @@
 {
-  "name": "mattpocock-skills",
+  "name": "100nandoo-skills",
   "skills": [
     "./skills/engineering/diagnose",
     "./skills/engineering/grill-with-docs",
     "./skills/engineering/to-orc",
     "./skills/engineering/triage",
     "./skills/engineering/improve-codebase-architecture",
-    "./skills/engineering/setup-matt-pocock-skills",
+    "./skills/engineering/setup-repo-skills",
     "./skills/engineering/tdd",
     "./skills/engineering/to-issues",
     "./skills/engineering/to-prd",
