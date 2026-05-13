@@ -8,6 +8,7 @@ description: Break a plan, spec, or PRD into independently-grabbable issues on t
 Break a plan into independently-grabbable issues using vertical slices (tracer bullets).
 
 The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if not.
+If `docs/agents/orchestration-labels.md` exists, use it as the repo's orchestration policy. If the user explicitly wants multi-chat planning or label design, use `/to-orc` first.
 
 ## Process
 
@@ -31,6 +32,13 @@ Slices may be 'HITL' or 'AFK'. HITL slices require human interaction, such as an
 - Prefer many thin slices over few thick ones
 </vertical-slice-rules>
 
+If orchestration is in scope, also draft:
+
+- the dependency stage for each slice
+- which slices share a parallel stage
+- whether lanes should be packed into fewer chats or spread across more chats
+- a proposed orchestration label for each slice
+
 ### 4. Quiz the user
 
 Present the proposed breakdown as a numbered list. For each slice, show:
@@ -39,6 +47,7 @@ Present the proposed breakdown as a numbered list. For each slice, show:
 - **Type**: HITL / AFK
 - **Blocked by**: which other slices (if any) must complete first
 - **User stories covered**: which user stories this addresses (if the source material has them)
+- **Orchestration label**: if orchestration is in scope
 
 Ask the user:
 
@@ -46,12 +55,15 @@ Ask the user:
 - Are the dependency relationships correct?
 - Should any slices be merged or split further?
 - Are the correct slices marked as HITL and AFK?
+- If orchestration labels are included: does the stage structure and chat packing look right?
 
 Iterate until the user approves the breakdown.
 
 ### 5. Publish the issues to the issue tracker
 
 For each approved slice, publish a new issue to the issue tracker. Use the issue body template below. These issues are considered ready for AFK agents, so publish them with the correct triage label unless instructed otherwise.
+
+If orchestration labels were approved, assign exactly one orchestration label per issue at creation time and preserve the explicit blockers in the issue body.
 
 Publish issues in dependency order (blockers first) so you can reference real issue identifiers in the "Blocked by" field.
 
