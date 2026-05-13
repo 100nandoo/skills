@@ -6,7 +6,7 @@ description: Turn the current conversation context into a PRD and publish it to 
 This skill takes the current conversation context and codebase understanding and produces a PRD. Do NOT interview the user — just synthesize what you already know.
 
 The issue tracker and triage label vocabulary should have been provided to you — run `/setup-repo-skills` if not.
-If the repo uses multi-chat planning, read `docs/agents/orchestration-labels.md` when it exists. The explicit workflow for designing that plan is `/to-orc`.
+If the repo uses multi-chat planning or the PRD needs orchestration notes, use `/to-orc` to design that plan whether or not `docs/agents/orchestration-labels.md` exists. If the file exists, treat it as input to `/to-orc`; otherwise let `/to-orc` fall back to its default scheme.
 
 ## Process
 
@@ -20,14 +20,14 @@ Check with the user that these modules match their expectations. Check with the 
 
 3. Write the PRD using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
 
-When the implementation is large enough to need multiple agent chats, include an orchestration note inside `Implementation Decisions` describing:
+When the implementation is large enough to need multiple agent chats, use `/to-orc` and include an orchestration note inside `Implementation Decisions` describing:
 
 - the likely foundation stages
 - where work can fan out in parallel
 - where work converges again
 - whether the default rollout should favor simple packing or optimized packing
 
-Do not invent exact orchestration labels in the PRD unless the user already approved them. If exact labels are needed, tell the user to run `/to-orc` after the PRD is published.
+Do not invent exact orchestration labels in the PRD unless `/to-orc` already produced them and the user approved them.
 
 <prd-template>
 

@@ -8,7 +8,7 @@ description: Break a plan, spec, or PRD into independently-grabbable issues on t
 Break a plan into independently-grabbable issues using vertical slices (tracer bullets).
 
 The issue tracker and triage label vocabulary should have been provided to you — run `/setup-repo-skills` if not.
-If `docs/agents/orchestration-labels.md` exists, use it as the repo's orchestration policy. If the user explicitly wants multi-chat planning or label design, use `/to-orc` first.
+If orchestration is in scope, use `/to-orc` first whether or not `docs/agents/orchestration-labels.md` exists. If the file exists, treat it as input to `/to-orc`; otherwise let `/to-orc` fall back to its default scheme.
 
 ## Process
 
