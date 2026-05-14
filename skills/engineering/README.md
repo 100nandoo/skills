@@ -4,6 +4,7 @@ Skills I use daily for code work.
 
 - **[diagnose](./diagnose/SKILL.md)** — Disciplined diagnosis loop for hard bugs and performance regressions: reproduce → minimise → hypothesise → instrument → fix → regression-test.
 - **[grill-with-docs](./grill-with-docs/SKILL.md)** — Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates `CONTEXT.md` and ADRs inline.
+- **[do-work](./do-work/SKILL.md)** — Execute a GitHub issue using `to-orc` stage labels, selecting the next unblocked stage, the correct `dev` vs worktree flow, and the right branch base.
 - **[to-orc](./to-orc/SKILL.md)** — Design dependency stages, parallel lanes, and chat routing for implementation issues so multiple agent chats can execute safely.
 - **[triage](./triage/SKILL.md)** — Triage issues through a state machine of triage roles.
 - **[improve-codebase-architecture](./improve-codebase-architecture/SKILL.md)** — Find deepening opportunities in a codebase, informed by the domain language in `CONTEXT.md` and the decisions in `docs/adr/`.
