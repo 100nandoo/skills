@@ -8,7 +8,7 @@ description: Break a plan, spec, or PRD into independently-grabbable issues on t
 Break a plan into independently-grabbable issues using vertical slices (tracer bullets).
 
 The issue tracker and triage label vocabulary should have been provided to you — run `/setup-repo-skills` if not.
-If orchestration is in scope, use `/to-orc` first whether or not `docs/agents/orchestration-labels.md` exists. If the file exists, treat it as input to `/to-orc`; otherwise let `/to-orc` fall back to its default scheme.
+If the plan produces more than one issue, or any issue is blocked by another issue, you MUST run `/to-orc` before publishing unless the user explicitly says to skip orchestration. If `docs/agents/orchestration-labels.md` exists, treat it as input to `/to-orc`; otherwise let `/to-orc` fall back to its default scheme.
 
 ## Process
 
@@ -32,7 +32,14 @@ Slices may be 'HITL' or 'AFK'. HITL slices require human interaction, such as an
 - Prefer many thin slices over few thick ones
 </vertical-slice-rules>
 
-If orchestration is in scope, also draft:
+After drafting the slices, determine whether orchestration is required.
+
+Orchestration is required when either of these is true:
+
+- the plan produces more than one issue
+- any slice is blocked by another slice
+
+If orchestration is required, also draft:
 
 - the dependency stage for each slice
 - which slices share a parallel stage
@@ -47,7 +54,7 @@ Present the proposed breakdown as a numbered list. For each slice, show:
 - **Type**: HITL / AFK
 - **Blocked by**: which other slices (if any) must complete first
 - **User stories covered**: which user stories this addresses (if the source material has them)
-- **Orchestration label**: if orchestration is in scope
+- **Orchestration label**: if orchestration is required
 
 Ask the user:
 
@@ -63,7 +70,21 @@ Iterate until the user approves the breakdown.
 
 For each approved slice, publish a new issue to the issue tracker. Use the issue body template below. These issues are considered ready for AFK agents, so publish them with the correct triage label unless instructed otherwise.
 
+Before publishing, validate all of the following:
+
+- whether the approved plan produces more than one issue
+- whether any approved slice is blocked by another slice
+- whether the repo defines an orchestration label scheme
+- whether an approved orchestration mapping already exists
+
+If the approved plan is multi-issue or blocked, and there is no approved orchestration mapping, stop and run `/to-orc` before publishing unless the user explicitly waived orchestration.
+
 If orchestration labels were approved, assign exactly one orchestration label per issue at creation time and preserve the explicit blockers in the issue body.
+
+Before creating the first issue, confirm one of these invariants holds:
+
+- every issue has exactly one orchestration label
+- the user explicitly said to skip orchestration
 
 Publish issues in dependency order (blockers first) so you can reference real issue identifiers in the "Blocked by" field.
 
