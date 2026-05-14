@@ -1,5 +1,8 @@
 # Skills For Real Engineers
 
+> [!NOTE]
+> This fork intentionally diverges from upstream by adding the `to-orc` skill, introducing an orchestration tagging system, and making `/grill-with-docs` more efficient by asking all questions at once.
+
 [![skills.sh](https://skills.sh/b/100nandoo/skills)](https://skills.sh/100nandoo/skills)
 
 A collection of practical agent skills for real engineering work.
