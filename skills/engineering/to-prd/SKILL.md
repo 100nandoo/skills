@@ -6,7 +6,8 @@ disable-model-invocation: true
 
 This skill takes the current conversation context and codebase understanding and produces a PRD. Do NOT interview the user — just synthesize what you already know.
 
-The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if not.
+The issue tracker and triage label vocabulary should have been provided to you — run `/setup-repo-skills` if not.
+If the repo uses multi-chat planning or the PRD needs orchestration notes, use `/to-orc` to design that plan whether or not `docs/agents/orchestration-labels.md` exists. If the file exists, treat it as input to `/to-orc`; otherwise let `/to-orc` fall back to its default scheme.
 
 ## Process
 
@@ -17,6 +18,15 @@ The issue tracker and triage label vocabulary should have been provided to you �
 Check with the user that these seams match their expectations.
 
 3. Write the PRD using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
+
+When the implementation is large enough to need multiple agent chats, use `/to-orc` and include an orchestration note inside `Implementation Decisions` describing:
+
+- the likely foundation stages
+- where work can fan out in parallel
+- where work converges again
+- whether the default rollout should favor simple packing or optimized packing
+
+Do not invent exact orchestration labels in the PRD unless `/to-orc` already produced them and the user approved them.
 
 <prd-template>
 
